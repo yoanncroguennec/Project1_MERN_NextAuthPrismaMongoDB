@@ -1,4 +1,6 @@
+import Layout from './components/layouts/Layout';
 import './globals.css'
+import GlobalProvider from './utils/contexts/GlobalProvider'
 
 export const metadata = {
   title: 'Create Next App',
@@ -7,8 +9,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang='en'>
+      <body>
+        <GlobalProvider>
+          <Layout>{children}</Layout>
+        </GlobalProvider>
+      </body>
     </html>
-  )
+  );
 }
