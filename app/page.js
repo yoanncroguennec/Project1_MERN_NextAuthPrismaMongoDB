@@ -1,16 +1,22 @@
-import { getServerSession } from 'next-auth'
-import React from 'react'
-import { authOptions } from './api/auth/[...nextauth]/route'
-import User from './components/user/User';
 
-export default async function Home() {
-  const session = await getServerSession(authOptions)
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import User from "./components/user/User";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Home from "./components/common/home/Home";
+
+export default async function HomeApp() {
+  const session = await getServerSession(authOptions);
 
   return (
     <div>
-      page
-      <pre>{JSON.stringify(session)}</pre>
-      <User />
+
+Lorem150
+
+      {/* <Home />
+      <User /> */}
+      <br />
+
     </div>
   );
 }

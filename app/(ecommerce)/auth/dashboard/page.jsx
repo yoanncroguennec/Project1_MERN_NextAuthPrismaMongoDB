@@ -8,7 +8,7 @@ export default function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       <p>Hi {session?.user?.email}</p>
-      <button onClick={() => signOut()}>Sign Out</button>
+      <button onClick={() => signOut()}>Se déconnecter</button>
     </div>
   );
 }

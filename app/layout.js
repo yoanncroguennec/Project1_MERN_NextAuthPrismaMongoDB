@@ -1,6 +1,16 @@
+import { Roboto } from "next/font/google"
 import Layout from './components/layouts/Layout';
 import './globals.css'
 import GlobalProvider from './utils/contexts/GlobalProvider'
+import { useSession, signOut } from "next-auth/react";
+import LayoutApp from "./components/layouts/LayoutApp";
+
+
+const roboto = Roboto({
+  display: "swap",
+  subsets: ["latin"],
+  weight: "900",
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -8,9 +18,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang='en'>
-      <body>
+      <body
+      //</html>className={roboto.className}
+      >
         <GlobalProvider>
           <Layout>{children}</Layout>
         </GlobalProvider>
