@@ -10,18 +10,18 @@ export const linksNavbar = [
     pathname: "/",
     name: "Accueil",
   },
-  {
-    pathname: "/callApiExterne/listUsers",
-    name: "Liste Users",
-  },
-  {
-    pathname: "/callApiExterne/listDogs",
-    name: "Liste des chiens",
-  },
-  {
-    pathname: "/listPizzas",
-    name: "Liste Pizzas",
-  },
+  // {
+  //   pathname: "/callApiExterne/listUsers",
+  //   name: "Liste Users",
+  // },
+  // {
+  //   pathname: "/callApiExterne/listDogs",
+  //   name: "Liste des chiens",
+  // },
+  // {
+  //   pathname: "/listPizzas",
+  //   name: "Liste Pizzas",
+  // },
   {
     pathname: "/contact",
     name: "Contact",
