@@ -3,9 +3,62 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+// NEXT
+import Link from "next/link";
 
+
+////////////////////// EXPORT FUNCTION //////////////////////
 export default function Register() {
+  ////////////////////// RESPONSIVE //////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+  ////////////////////// STYLES //////////////////////
+  const RootRegister = {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100vw",
+  };
+
+  const TypoTitlePage = styled(Typography)(({ theme }) => ({
+    fontFamily: "'Dancing Script', cursive",
+    margin: "65px",
+  }));
+
+  const BoxRegister = {
+    border: "4px solid #000",
+    borderRadius: "20px",
+    boxShadow: "rgba(, 0, 0, 0.4) 0px 30px 90px",
+    background: "linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB)",
+    height: "300px",
+    width: "450px",
+  };
+
+  const stylesForm = {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingTop: "30px",
+    paddingBottom: "10px",
+  };
+
+  const stylesLink ={
+    color: "#FFF",
+    textDecoration: "none",
+  }
+
+  ////////////////////// JS //////////////////////
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -17,108 +70,59 @@ export default function Register() {
     axios
       .post("/api/auth/register", data)
       // .then(() => alert("L'utilisateur a été enregistré !"))
-      .then(() => toast.success("L'utilisateur a été enregistré !"))
+      .then(() => toast.success("L'utilisateur a été enregistré ! Connectez-vous"))
       // .catch(() => alert("Quelque chose n'a pas fonctionné !"));
       .catch(() => toast.error("Quelque chose n'a pas fonctionné !"));
   };
 
   return (
-    <div
-      style={{ alignItems: "center", display: "flex", flexDirection: "column" }}
-    >
-      <Typography variant='h3'>S'inscrire</Typography>
+    <div style={RootRegister}>
+      <TypoTitlePage variant={matches ? "h4" : "h2"}>
+        S&apos;inscrire
+      </TypoTitlePage>
 
-      <form onSubmit={registerUser}>
-        <div>
-          <label
-            htmlFor='name'
-            className='block text-sm font-medium leading-6 text-gray-900'
-          >
-            Name
-          </label>
-          <div className='mt-2'>
-            <input
-              id='name'
-              name='name'
-              type='text'
-              required
-              value={data.name}
-              onChange={(e) => setData({ ...data, name: e.target.value })}
-              className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            />
-          </div>
-        </div>
-        <div>
-          <label
-            htmlFor='email'
-            className='block text-sm font-medium leading-6 text-gray-900'
-          >
-            Email address
-          </label>
-          <div className='mt-2'>
-            <input
-              id='email'
-              name='email'
-              type='email'
-              autoComplete='email'
-              required
-              value={data.email}
-              onChange={(e) => setData({ ...data, email: e.target.value })}
-              className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            />
-          </div>
-        </div>
+      <div style={BoxRegister}>
+        <form onSubmit={registerUser} style={stylesForm}>
+          <input
+            id='name'
+            name='name'
+            placeholder='Entrer votre Nom...'
+            type='text'
+            required
+            value={data.name}
+            onChange={(e) => setData({ ...data, name: e.target.value })}
+          />
+          <input
+            id='email'
+            name='email'
+            type='email'
+            autoComplete='email'
+            placeholder='Entrer votre Email...'
+            required
+            value={data.email}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+          />
+          <input
+            id='password'
+            name='password'
+            type='password'
+            autoComplete='current-password'
+            placeholder='Entrer votre Mot de passe...'
+            required
+            value={data.password}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+          />
 
-        <div>
-          <div className='flex items-center justify-between'>
-            <label
-              htmlFor='password'
-              className='block text-sm font-medium leading-6 text-gray-900'
-            >
-              Password
-            </label>
-            <div className='text-sm'>
-              <a
-                href='#'
-                className='font-semibold text-indigo-600 hover:text-indigo-500'
-              >
-                Forgot password?
-              </a>
-            </div>
-          </div>
-          <div className='mt-2'>
-            <input
-              id='password'
-              name='password'
-              type='password'
-              autoComplete='current-password'
-              required
-              value={data.password}
-              onChange={(e) => setData({ ...data, password: e.target.value })}
-              className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-            />
-          </div>
-        </div>
-
-        <div>
-          <button
-            type='submit'
-            className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-          >
-            Register
-          </button>
-        </div>
-      </form>
-
-      <p className='mt-10 text-center text-sm text-gray-500'>
-        Not a member?{" "}
-        <a
-          href='#'
-          className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
-        >
-          Start a 14 day free trial
-        </a>
-      </p>
+          <Button type='submit' variant='contained'>
+            S'Inscrire
+          </Button>
+        </form>
+        <Link href='/auth/login' style={stylesLink}>
+          <Typography align='center' variant='h6'>
+            Un compte ? Se connecter
+          </Typography>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 const person = {
-  name: "John Doe",
-  age: 22,
+  job: "Développeur",
+  name: "Croguennec Yoann",
+  age: 37,
+  email: "yoann.croguennec@gmail.com"
 };
 
 export const linksNavbar = [
@@ -9,7 +11,7 @@ export const linksNavbar = [
     name: "Accueil",
   },
   {
-    pathname: "/callApiExterne/users",
+    pathname: "/callApiExterne/listUsers",
     name: "Liste Users",
   },
   {
@@ -21,8 +23,8 @@ export const linksNavbar = [
     name: "Liste Pizzas",
   },
   {
-    pathname: "about",
-    name: "A propos",
+    pathname: "/contact",
+    name: "Contact",
     query: { person: JSON.stringify(person) },
   },
 ];

@@ -19,7 +19,6 @@ export default function Navbar() {
     fontSize: "14px",
     height: "8vh",
     justifyContent: "space-between",
-    // justifyContent: "space-between",
     position: "fixed",
     top: "0",
     width: "100%",
@@ -64,6 +63,7 @@ export default function Navbar() {
             display: "flex",
             flexWrap: "nowrap",
             justifyContent: "center",
+            marginRight: "25px",
           }}
         >
           {session?.user?.image !== null && (
@@ -77,7 +77,7 @@ export default function Navbar() {
           )}
           {session?.user?.image === null && <div>Pas de photo</div>}
 
-          <Typography variant=''>{session?.user?.email}</Typography>
+          <Typography variant='h6'>{session?.user?.email}</Typography>
         </div>
       ) : (
         <Link href='/auth/login'>Se connecter</Link>

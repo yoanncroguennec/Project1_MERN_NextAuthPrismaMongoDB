@@ -1,11 +1,72 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
 import { toast } from "react-hot-toast";
+import {
+  Box,
+  Button,
+  Typography,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+// NEXT
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+// NEXT-AUTH
+import { signIn, useSession } from "next-auth/react";
 
+////////////////////// EXPORT FUNCTION //////////////////////
 export default function Login() {
+  ////////////////////// RESPONSIVE //////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+  ////////////////////// STYLES //////////////////////
+  const RootLogin = {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100vw",
+  };
+
+  const TypoTitlePage = styled(Typography)(({ theme }) => ({
+    fontFamily: "'Dancing Script', cursive",
+    margin: "65px",
+  }));
+
+  const BoxLogin = {
+    border: "4px solid #000",
+    borderRadius: "20px",
+    boxShadow: "rgba(, 0, 0, 0.4) 0px 30px 90px",
+    background: "linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB)",
+    height: "300px",
+    width: "450px",
+  };
+
+  const stylesForm = {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingTop: "30px",
+    paddingBottom: "10px",
+  };
+
+  const stylesLink = {
+    color: "#FFF",
+    textDecoration: "none",
+  };
+
+  const BoxBtnsLoginSocialNetworks = styled(Box)(({ theme }) => ({
+    alignItems: "center",
+    display: "flex",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+  }));
+
+  ////////////////////// JS //////////////////////
   const session = useSession();
   const router = useRouter();
   const [data, setData] = useState({
@@ -33,106 +94,52 @@ export default function Login() {
     });
   };
 
+  ////////////////////// RETURN //////////////////////
   return (
-    <>
-      <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
-        <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-          <h2 className='mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
-            Sign in to your account
-          </h2>
-        </div>
+    <div style={RootLogin}>
+      <TypoTitlePage variant={matches ? "h4" : "h2"}>Connexion</TypoTitlePage>
 
-        <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
-          <form className='space-y-6' onSubmit={loginUser}>
-            <div>
-              <label
-                htmlFor='email'
-                className='block text-sm font-medium leading-6 text-gray-900'
-              >
-                Email address
-              </label>
-              <div className='mt-2'>
-                <input
-                  id='email'
-                  name='email'
-                  type='email'
-                  autoComplete='email'
-                  value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
-                  required
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
+      <div style={BoxLogin}>
+        <form onSubmit={loginUser} style={stylesForm}>
+          <input
+            id='email'
+            name='email'
+            placeholder='Entrer votre Email...'
+            type='email'
+            autoComplete='email'
+            value={data.email}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+          />
 
-            <div>
-              <div className='flex items-center justify-between'>
-                <label
-                  htmlFor='password'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Password
-                </label>
-                <div className='text-sm'>
-                  <a
-                    href='#'
-                    className='font-semibold text-indigo-600 hover:text-indigo-500'
-                  >
-                    Forgot password?
-                  </a>
-                </div>
-              </div>
-              <div className='mt-2'>
-                <input
-                  id='password'
-                  name='password'
-                  type='password'
-                  autoComplete='current-password'
-                  required
-                  value={data.password}
-                  onChange={(e) =>
-                    setData({ ...data, password: e.target.value })
-                  }
-                  className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                />
-              </div>
-            </div>
+          <input
+            id='password'
+            name='password'
+            type='password'
+            autoComplete='current-password'
+            placeholder='Entrer votre Mot de passe...'
+            required
+            value={data.password}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+          />
 
-            <div>
-              <button
-                type='submit'
-                className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-              >
-                Sign in
-              </button>
-            </div>
-          </form>
-          <h1>Sign into Github below</h1>
-          <button
-            onClick={() => signIn("github")}
-            className='bg-black text-white w-full'
-          >
-            Sign In
-          </button>
-          <h1>Sign into Google below</h1>
-          <button
-            onClick={() => signIn("google")}
-            className='bg-red-500 text-white w-full'
-          >
-            Sign In
-          </button>
-
-          <p className='mt-10 text-center text-sm text-gray-500'>
-            Not a member?{" "}
-            <a
-              href='#'
-              className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
-            >
-              Start a 14 day free trial
-            </a>
-          </p>
-        </div>
+          <Button type='submit' variant='contained'>
+            Se connecter
+          </Button>
+        </form>
+        <Link href='/auth/register' style={stylesLink}>
+          <Typography align='center' variant='h6'>
+            Pas de compte ? S&apos;Inscrire
+          </Typography>
+        </Link>
+        {/* <BoxBtnsLoginSocialNetworks>
+          <Button onClick={() => signIn("github")} variant='contained'>
+            Github
+          </Button>
+          <Button onClick={() => signIn("google")} variant='contained'>
+            Google
+          </Button>
+        </BoxBtnsLoginSocialNetworks> */}
       </div>
-    </>
+    </div>
   );
 }

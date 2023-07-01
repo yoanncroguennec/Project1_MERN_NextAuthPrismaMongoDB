@@ -4,10 +4,10 @@ Lien Vercel : https://project1-mern-next-auth-prisma-mongo-db.vercel.app/
 
 
 
-Infos :
+Informations du Projet :
 BDD : "Project1_MERN_NextAuthPrismaMongoDB"
-Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"
-Site Internet : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"
+Lien Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"
+Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"
 
 
 
@@ -29,3 +29,18 @@ In case this error is unexpected for you, please report it in https://github.com
     "scripts" {
         "postinstall": "prisma generate"
     }
+
+
+***
+***
+
+
+Listes d'autres Applications Next-Auth avec Next JS, que j'ai réalisé :
+
+(Folder Github Public)
+Next-Auth / With Prisma / MongoDB
+Link Website :
+Link Github :
+(Folder Github Private)
+Next-Auth / Without Prisma / MongoDBLink Website :
+Link Github :
