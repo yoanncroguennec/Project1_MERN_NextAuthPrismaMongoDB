@@ -100,7 +100,7 @@ export default function Login() {
       <TypoTitlePage variant={matches ? "h4" : "h2"}>Connexion</TypoTitlePage>
 
       <div style={BoxLogin}>
-        <Typography variant=''>Démo: yoann.croguennec@gmail.com / 95449544</Typography>
+        <Typography align="center" sx={{ paddingTop: "15px"}} variant='h6'>Démo: yoann.croguennec@gmail.com / 95449544</Typography>
         <form onSubmit={loginUser} style={stylesForm}>
           <input
             id='email'

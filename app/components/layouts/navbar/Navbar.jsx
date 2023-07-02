@@ -32,6 +32,13 @@ export default function Navbar() {
     height: "80px",
     width: "80px",
   }
+
+  const stylesLink = {
+    color: "#FFF",
+    marginRight: "30px",
+    textDecoration: "none"
+  }
+
   //////////////////// JS ////////////////////
   const { data: session } = useSession();
   console.log(session);
@@ -80,7 +87,7 @@ export default function Navbar() {
           <Typography variant='h6'>{session?.user?.email}</Typography>
         </div>
       ) : (
-        <Link href='/auth/login'>Se connecter</Link>
+        <Link href='/auth/login' style={stylesLink}><Typography variant="h6">Se connecter</Typography></Link>
       )}
     </RootNavbar>
   );
