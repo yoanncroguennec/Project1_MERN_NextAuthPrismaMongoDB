@@ -9,6 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 // NEXT
+import Image from "next/image";
 import { redirect } from "next/navigation";
 // NEXT-AUTH
 import { useSession, signOut } from "next-auth/react";
@@ -47,6 +48,13 @@ export default function Dashboard() {
     width: "450px",
   };
 
+    const stylesImg = {
+    border: "4px solid #000",
+    borderRadius: "999px",
+    height: "80px",
+    width: "80px",
+  };
+
   ////////////////////// JS //////////////////////
   const { data: session } = useSession();
 
@@ -61,6 +69,16 @@ export default function Dashboard() {
         <TypoTitlePage variant="h3">
           Mon Profil
         </TypoTitlePage>
+              {session?.user?.image !== null && (
+        <Image
+          alt=''
+          height={200}
+          src={session?.user?.image}
+          style={stylesImg}
+          width={200}
+        />
+      )}
+      {session?.user?.image === null && <div>Pas de photo</div>}
         <Typography variant="h6">Email : {session?.user?.email}</Typography>
         <Button onClick={() => signOut()} variant="contained">Se déconnecter</Button>
       </div>

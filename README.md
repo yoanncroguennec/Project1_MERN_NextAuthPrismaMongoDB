@@ -1,10 +1,8 @@
 
-Lien Vercel : https://project1-mern-next-auth-prisma-mongo-db.vercel.app/
 
 
 
-
-Informations du Projet :
+<b><u>Informations du Projet :</u></b>
 BDD : "Project1_MERN_NextAuthPrismaMongoDB"
 Lien Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"
 Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"

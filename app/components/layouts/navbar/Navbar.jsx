@@ -1,14 +1,19 @@
 "use client";
 
 import { linksNavbar } from "@/app/utils/data/DataLinksNavbar";
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Typography, styled, useTheme, useMediaQuery } from "@mui/material";
 import { useSession, signOut } from "next-auth/react";
-import Image from "next/image";
+// NEXT
 import Link from "next/link";
 import React from "react";
+import NavbarImgProfile from "./NavbarImgProfile";
 
 //////////////////// EXPORT FUNCTION ////////////////////
 export default function Navbar() {
+  ////////////////////// RESPONSIVE //////////////////////
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   //////////////////// STYLES FEATURED ////////////////////
   const RootNavbar = styled(Box)(({ theme }) => ({
     alignItems: "center",
@@ -31,13 +36,13 @@ export default function Navbar() {
     borderRadius: "999px",
     height: "80px",
     width: "80px",
-  }
+  };
 
   const stylesLink = {
     color: "#FFF",
     marginRight: "30px",
-    textDecoration: "none"
-  }
+    textDecoration: "none",
+  };
 
   //////////////////// JS ////////////////////
   const { data: session } = useSession();
@@ -59,7 +64,7 @@ export default function Navbar() {
               padding: "5px",
             }}
           >
-            <Typography variant='h6'>{name}</Typography>
+            <Typography variant={matches ? "" : "h6"}>{name}</Typography>
           </Link>
         ))}
       </div>
@@ -73,21 +78,15 @@ export default function Navbar() {
             marginRight: "25px",
           }}
         >
-          {session?.user?.image !== null && (
-            <Image
-              alt=''
-              height={200}
-              src={session?.user?.image}
-              style={stylesImg}
-              width={200}
-            />
-          )}
-          {session?.user?.image === null && <div>Pas de photo</div>}
+        {matches ? `` : <NavbarImgProfile session={session} stylesImg={stylesImg} />
+        }
 
-          <Typography variant='h6'>{session?.user?.email}</Typography>
+          <Typography variant={matches ? "" : "h6"}>{session?.user?.email}</Typography>
         </div>
       ) : (
-        <Link href='/auth/login' style={stylesLink}><Typography variant="h6">Se connecter</Typography></Link>
+        <Link href='/auth/login' style={stylesLink}>
+          <Typography variant='h6'>Se connecter</Typography>
+        </Link>
       )}
     </RootNavbar>
   );
