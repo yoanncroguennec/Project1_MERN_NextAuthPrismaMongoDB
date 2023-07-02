@@ -1,44 +1,46 @@
-
-
-
-
-<b><u>Informations du Projet :</u></b>
-BDD : "Project1_MERN_NextAuthPrismaMongoDB"
-Lien Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"
-Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"
-
-
-
-1. Prisma
-   - Install "prisma" and "npx prisma init"
-   - If error : "Server Error
-Error: @prisma/client did not initialize yet. Please run "prisma generate" and try to import it again.
-In case this error is unexpected for you, please report it in https://github.com/prisma/prisma/issues" 
-    - Solution : "npx prisma generate"
-1. SERVER - Create NextAuth
-2. SERVER - Create Register
-3. FRONT - Create File 
-
-
-6. Error Vercel prisma :
-   - Error : PrismaClientInitializationError: Prisma has detected that this project was built on Vercel, which caches dependencies. This leads to an outdated Prisma Client because Prisma's auto-generation isn't triggered. To fix this, make sure to run the `prisma generate` command during the build process.
-   - Solution : https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue
-   - Solution : A rajouter dans le fichier "package.json", Section "scripts"
-    "scripts" {
-        "postinstall": "prisma generate"
-    }
-
+Bonjour,
+Je vous présente mon travail qui est basé sur l'Authentification. Le code est basé sur les technologies "Next JS 13", "Next Auth (Email)", "MongoDB".
 
 ***
 ***
 
+<b><u>Informations du Projet :</u></b><br/>
+BDD : "Project1_MERN_NextAuthPrismaMongoDB"<br/>
+Lien Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"<br/>
+Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"<br/>
 
-Listes d'autres Applications Next-Auth avec Next JS, que j'ai réalisé :
+***
+***
 
-(Folder Github Public)
-Next-Auth / With Prisma / MongoDB
-Link Website :
-Link Github :
+<b><u>Procédure effectué :</u></b><br/>
+1. INIT PROJECT - Create a project based on Prisma
+2. SERVER - Create NextAuth
+3. SERVER - Create Register
+4. FRONT - Create Folder and files "Auth"
+5. VERCEL - Deploy Vercel
+
+***
+***
+<br />
+Cliquez sur l'image ci-dessous pour être redirigée vers la vidéo Youtube présentant le Projet "Next-Auth / Prisma" :
+
+[![texte alternatif de l'image](https://res.cloudinary.com/dky2vpnyr/image/upload/v1688331524/MyPortfolio/Project1_mern_next_auth_with_prisma_and_mongodb/Project1_mern_next_auth_with_prisma_and_mongodb_a3xnif.png)](https://www.youtube.com/watch?v=nUbANDzUB34 "Youtube : Présentation Next Auth Email - Prisma - Next 13
+")
+
+***
+***
+<br/>
+<b><u>Listes d'autres Applications Next-Auth avec Next JS, que j'ai réalisé :</u></b><br/>
+
+
+Next-Auth / With Prisma / MongoDB / JSX :
+Link Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"
+<b>(Folder Github Public) :</b>
+Link Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB
 (Folder Github Private)
-Next-Auth / Without Prisma / MongoDBLink Website :
+<br/>
+Next-Auth / Without Prisma / MongoDBLink / TSX :
+Link Vercel :
+<b>(Folder Github Private) :</b>
 Link Github :
+
