@@ -6,7 +6,7 @@ Je vous présente mon travail qui est basé sur l'Authentification. Le code est 
 
 <b><u>Informations du Projet :</u></b><br/>
 BDD : "Project1_MERN_NextAuthPrismaMongoDB"<br/>
-Lien Github : "https://github1s.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"<br/>
+Lien Github : "https://github.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB"<br/>
 Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"<br/>
 
 ***
@@ -27,20 +27,4 @@ Lien Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"<br/>
 
 [![texte alternatif de l'image](https://res.cloudinary.com/dky2vpnyr/image/upload/v1688331524/MyPortfolio/Project1_mern_next_auth_with_prisma_and_mongodb/Project1_mern_next_auth_with_prisma_and_mongodb_a3xnif.png)](https://www.youtube.com/watch?v=nUbANDzUB34 "Youtube : Présentation Next Auth Email - Prisma - Next 13
 ")
-
-***
-***
-<br/>
-<b><u>Listes d'autres Applications Next-Auth avec Next JS, que j'ai réalisé :</u></b><br/>
-
-
-Next-Auth / With Prisma / MongoDB / JSX :<br />
-Link Vercel : "https://project1-mern-next-auth-prisma-mongo-db.vercel.app"<br />
-<b>(Folder Github Public) :</b><br />
-Link Github : "https://github1s.com/yoanncroguennec/Project1_MERN_NextAuthPrismaMongoDB<br />
-<br/>
-Next-Auth / Without Prisma / MongoDB / TSX :<br />
-Link Vercel : <br />
-<b>(Folder Github Private) :</b><br />
-Link Github : <br />
 
