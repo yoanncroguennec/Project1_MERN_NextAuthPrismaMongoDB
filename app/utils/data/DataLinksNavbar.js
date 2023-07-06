@@ -10,10 +10,10 @@ export const linksNavbar = [
     pathname: "/",
     name: "Accueil",
   },
-  // {
-  //   pathname: "/callApiExterne/listUsers",
-  //   name: "Liste Users",
-  // },
+  {
+    pathname: "/callApiExterne/listUsers",
+    name: "Liste Users",
+  },
   {
     pathname: "/callApiExterne/listDogs",
     name: "Liste des chiens",

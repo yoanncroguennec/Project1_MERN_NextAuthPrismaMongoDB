@@ -11,7 +11,7 @@ export default async function GetAllUsersCallApiExternePage() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {users.map(({ id, name }) => (
-        <Link href={`/callApiExterne/users/${id}`}>
+        <Link href={`/callApiExterne/listUsers/${id}`}>
           <Typography key={id} variant=''>
             {name}
           </Typography>
