@@ -97,7 +97,7 @@ export default function Login() {
   ////////////////////// RETURN //////////////////////
   return (
     <div style={RootLogin}>
-      <TypoTitlePage variant={matches ? "h4" : "h2"}>Connexion</TypoTitlePage>
+      <TypoTitlePage variant={matches ? "h4" : "h2"}>Connexion avec Next Auth</TypoTitlePage>
 
       <div style={BoxLogin}>
         <Typography align="center" sx={{ paddingTop: "15px"}} variant='h6'>Démo: yoann.croguennec@gmail.com / 95449544</Typography>
